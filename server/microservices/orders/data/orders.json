@@ -1,0 +1,71 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "status": "completed",
+      "date": "2024-03-22",
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 2,
+          "price": 999.99,
+          "product": {
+            "id": 1,
+            "name": "Smartphone XYZ",
+            "price": 999.99,
+            "category": "Electronics",
+            "stock": 50,
+            "imageUrl": "https://www.wired.com/wp-content/uploads/2017/02/sony-xperia-xy-premium-smartphone.jpg"
+          }
+        },
+        {
+          "productId": 3,
+          "quantity": 1,
+          "price": 59.99,
+          "product": {
+            "id": 3,
+            "name": "Gaming Mouse",
+            "price": 59.99,
+            "category": "Accessories",
+            "stock": 100,
+            "imageUrl": "https://alexnld.com/wp-content/uploads/2020/03/YINDIAO-G5-Wired-Gaming-Mouse-6D-3200DPI-RGB-Gaming-Mouse-Computer-Laptop-Optical-Game-Mouse-1.jpg"
+          }
+        }
+      ],
+      "user": {
+          "id": 1,
+          "name": "Thiago Ferreira",
+          "email": "thiago.ferreira@gmail.com"
+      },
+      "total": 2059.97
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "status": "pending",
+      "date": "2024-03-23",
+      "items": [
+        {
+          "productId": 2,
+          "quantity": 1,
+          "price": 1499.99,
+          "product": {
+            "id": 2,
+            "name": "Laptop Pro",
+            "price": 1499.99,
+            "category": "Electronics",
+            "stock": 30,
+            "imageUrl": "https://www.bhphotovideo.com/images/images1000x1000/samsung_np940z5l_x01us_notebook_9_pro_pure_1321510.jpg"
+          }
+        }
+      ],
+      "user": {
+        "id": 1,
+        "name": "Thiago Ferreira",
+        "email": "thiago.ferreira@gmail.com"
+      },
+      "total": 1499.99
+    }
+  ]
+}

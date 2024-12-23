@@ -1,0 +1,48 @@
+services:
+  auth-ms:
+    build: ./auth
+    container_name: auth-ms
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./auth:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  users-ms:
+    build: ./users
+    container_name: users-ms
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./users:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  products-ms:
+    build: ./products
+    container_name: products-ms
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./products:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  orders-ms:
+    build: ./orders
+    container_name: orders-ms
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./orders:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped

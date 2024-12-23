@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Thiago Ferreira",
+      "email": "thiago.ferreira@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Maria Silva",
+      "email": "maria.silva@hotmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Oliveira",
+      "email": "carlos.oliveira@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Ana Souza",
+      "email": "ana.souza@yahoo.com"
+    },
+    {
+      "id": 5,
+      "name": "Felipe Costa",
+      "email": "felipe.costa@outlook.com"
+    }
+  ]
+}

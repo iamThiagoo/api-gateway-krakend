@@ -1,0 +1,3 @@
+include:
+  - ./kraken/compose.yaml
+  - ./microservices/compose.yaml

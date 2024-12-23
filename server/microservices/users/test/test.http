@@ -1,0 +1,14 @@
+###
+http://localhost:3001/users
+
+###
+http://localhost:3001/users/1
+
+###
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "
+}

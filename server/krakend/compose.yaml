@@ -1,0 +1,10 @@
+services:
+  krakend:
+    image: devopsfaith/krakend:watch
+    container_name: krakend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config/krakend:/etc/krakend
+    environment:
+      - KRAKEND_CONFIG=/etc/krakend/krakend.json

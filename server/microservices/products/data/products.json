@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smartphone XYZ",
+      "price": 999.99,
+      "category": "Electronics",
+      "stock": 50,
+      "imageUrl": "https://www.wired.com/wp-content/uploads/2017/02/sony-xperia-xy-premium-smartphone.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Laptop Pro",
+      "price": 1499.99,
+      "category": "Electronics",
+      "stock": 30,
+      "imageUrl": "https://www.bhphotovideo.com/images/images1000x1000/samsung_np940z5l_x01us_notebook_9_pro_pure_1321510.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Gaming Mouse",
+      "price": 59.99,
+      "category": "Accessories",
+      "stock": 100,
+      "imageUrl": "https://alexnld.com/wp-content/uploads/2020/03/YINDIAO-G5-Wired-Gaming-Mouse-6D-3200DPI-RGB-Gaming-Mouse-Computer-Laptop-Optical-Game-Mouse-1.jpg"
+    }
+  ]
+}
