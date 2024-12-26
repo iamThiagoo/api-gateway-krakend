@@ -1,0 +1,139 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "API Gateway - KrakenD",
+  "port": 8080,
+  "timeout": "10000ms",
+  "output_encoding": "json",
+  "endpoints": [
+    {
+      "@comment": "Feature: Get token",
+      "endpoint": "/v1/auth",
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/login",
+          "host": ["http://auth-ms:3000"],
+          "encoding": "json"
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Fetch all users",
+      "endpoint": "/v1/users",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/users",
+          "host": ["http://users-ms:3001"],
+          "encoding": "json",
+          "is_collection": true,
+          "mapping": {
+            "collection": "users"
+          }
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Fetch user by ID",
+      "endpoint": "/v1/users/{id}",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/users/{id}",
+          "host": ["http://users-ms:3001"],
+          "encoding": "json"
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Create user",
+      "endpoint": "/v1/users",
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/users",
+          "host": ["http://users-ms:3001"],
+          "encoding": "json"
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Fetch all products",
+      "endpoint": "/v1/products",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/products",
+          "host": ["http://products-ms:3002"],
+          "encoding": "json",
+          "is_collection": true,
+          "mapping": {
+            "collection": "products"
+          }
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Fetch product by ID",
+      "endpoint": "/v1/products/{id}",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/products/{id}",
+          "host": ["http://products-ms:3002"],
+          "encoding": "json"
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Create product",
+      "endpoint": "/v1/products",
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/products",
+          "host": ["http://products-ms:3002"],
+          "encoding": "json"
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Fetch all orders",
+      "endpoint": "/v1/orders",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/orders",
+          "host": ["http://orders-ms:3003"],
+          "encoding": "json",
+          "is_collection": true,
+          "mapping": {
+            "collection": "orders"
+          }
+        }
+      ]
+    },
+    {
+      "@comment": "Feature: Fetch order by ID",
+      "endpoint": "/v1/orders/{id}",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/orders/{id}",
+          "host": ["http://orders-ms:3003"],
+          "encoding": "json"
+        }
+      ]
+    }
+  ],
+  "extra_config": {
+    "security/cors": {
+      "allow_origins": ["*"],
+      "allow_methods": ["POST", "GET"],
+      "allow_headers": ["Origin", "Authorization", "Content-Type"],
+      "expose_headers": ["Content-Length"],
+      "max_age": "12h"
+    }
+  }
+}

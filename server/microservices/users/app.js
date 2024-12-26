@@ -1,11 +1,13 @@
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const port = 3001;
 
 app.use(express.json());
+app.use(cors());
 
 async function readUsersFile() {
     try {
@@ -40,6 +42,11 @@ app.get('/users/:id', async (req, res) => {
 app.post('/users', async (req, res) => {
     try {
         const data = await readUsersFile();
+
+        if (!req.body.name || !req.body.email) {
+            return res.status(500).json({ error: 'Missing fields.' });
+        }
+
         const newUser = {
             id: data.users.length + 1,
             ...req.body

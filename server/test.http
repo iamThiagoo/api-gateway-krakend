@@ -1,0 +1,67 @@
+### @name auth
+POST http://localhost:8080/v1/auth
+Content-Type: application/json
+
+{
+    "user": "test",
+    "password": "1234"
+}
+
+###
+@token = {{auth.response.body.token}}
+
+# ------------------------------
+
+### @name users
+http://localhost:8080/v1/users
+Authorization: Bearer {{token}}
+
+###
+http://localhost:8080/v1/users/1
+Authorization: Bearer {{token}}
+
+### 
+POST http://localhost:8080/v1/users
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "John Doe",
+    "email": "johndoe@gmail.com"
+}
+
+# ------------------------------
+
+### @name products
+http://localhost:8080/v1/products
+Authorization: Bearer {{token}}
+
+###
+http://localhost:8080/v1/products/1
+Authorization: Bearer {{token}}
+
+### 
+POST http://localhost:8080/v1/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Macbook Pro",
+    "price": 999.99,
+    "category": "Electronics",
+    "stock": 1000,
+    "imageUrl": "https://www.bhphotovideo.com/images/images1000x1000/samsung_np940z5l_x01us_notebook_9_pro_pure_1321510.jpg"
+}
+
+
+# ------------------------------
+
+### @name orders
+http://localhost:8080/v1/orders
+Authorization: Bearer {{token}}
+
+###
+http://localhost:8080/v1/orders/1
+Authorization: Bearer {{token}}
+
+# ------------------------------

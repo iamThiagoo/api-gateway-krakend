@@ -23,6 +23,22 @@
       "category": "Accessories",
       "stock": 100,
       "imageUrl": "https://alexnld.com/wp-content/uploads/2020/03/YINDIAO-G5-Wired-Gaming-Mouse-6D-3200DPI-RGB-Gaming-Mouse-Computer-Laptop-Optical-Game-Mouse-1.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Wireless Headphones",
+      "price": 199.99,
+      "category": "Accessories",
+      "stock": 50,
+      "imageUrl": "https://media.wired.com/photos/66abec9ccb172c2e5de763bf/master/w_960,c_limit/Edifier-Stax-Spirit-S5-Headphones-Offwhite-Background-SOURCE-Amazon.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Macbook Pro",
+      "price": 999.99,
+      "category": "Electronics",
+      "stock": 1000,
+      "imageUrl": "https://www.bhphotovideo.com/images/images1000x1000/samsung_np940z5l_x01us_notebook_9_pro_pure_1321510.jpg"
     }
   ]
 }

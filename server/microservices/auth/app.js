@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const axios = require('axios');
 
 const app = express();
 const port = 3000;
-const SECRET_KEY = 'test';
 
 app.use(bodyParser.json());
 
@@ -13,27 +14,31 @@ const mock = {
     password: '1234'
 };
 
-app.post('/login', (req, res) => {
-    const { user, password } = req.body;
-    if (user === mock.user && password === mock.password) {
-        const token = jwt.sign({ email: mock.email }, SECRET_KEY, { expiresIn: '1h' });
+app.post('/login', async (req, res) => {
+    try {
+        const { user, password } = req.body;
+        if (user !== mock.user || password !== mock.password) {
+            return res.status(401).json({ message: 'Credenciais inválidas.' });
+        }
+        
+        const payload = {
+            sub: 'user-test',
+            user: 'test',
+            iat: Math.floor(Date.now() / 1000),
+        };
+
+        const token = jwt.sign(payload, privateKey, {
+            algorithm: 'HS256',
+            expiresIn: '12h',
+            header,
+        });
+
         res.json({ token });
-    } else {
-        res.status(401).json({ message: 'Invalid credencials.' });
+    } catch (error) {
+        console.error('Erro ao gerar token:', error);
+        res.status(500).json({ message: 'Erro ao gerar token.' });
     }
 });
-
-const checkToken = (req, res, next) => {
-    const token = req.headers['authorization'];
-    if (!token) return res.status(401).json({ message: 'Token not found.' });
-    try {
-        const decoded = jwt.verify(token.split(' ')[1], SECRET_KEY);
-        req.user = decoded;
-        next();
-    } catch (error) {
-        return res.status(401).json({ message: 'Invalid token.' });
-    }
-};
 
 app.listen(port, () => {
     console.log(`Auth server: ${port}`);

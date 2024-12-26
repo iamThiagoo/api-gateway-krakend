@@ -30,14 +30,14 @@ app.get('/orders/:id', async (req, res) => {
     try {
         const data = await readOrdersFile();
         const order = data.orders.find(o => o.id === parseInt(req.params.id));
-        
+
         if (!order) {
-            return res.status(404).json({ error: 'Pedido não encontrado' });
+            return res.status(404).json({ message: 'Order not found.' });
         }
         
         res.json(order);
     } catch (error) {
-        res.status(500).json({ error: 'Error (get order)' });
+        res.status(500).json({ message: 'Error (get order)' });
     }
 });
 

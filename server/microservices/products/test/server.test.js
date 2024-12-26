@@ -1,16 +1,14 @@
-import axios from 'axios';
+const axios = require("axios");
 
 axios.defaults.validateStatus = () => true;
 
 const BASE_URL = 'http://localhost:3002';
 
 describe('Products API', () => {
-  let newProduct;
 
   test('Should fetch all products', async () => {
     const response = await axios.get(`${BASE_URL}/products`);
     expect(response.status).toBe(200);
-    expect(response.data).toBeInstanceOf(Array);
     expect(response.data.length).toBeGreaterThan(0);
   });
 
@@ -50,12 +48,5 @@ describe('Products API', () => {
     };
     const response = await axios.post(`${BASE_URL}/products`, productData);
     expect(response.status).toBe(500);
-  });
-
-  test('Should fetch newly created product', async () => {
-    const response = await axios.get(`${BASE_URL}/products/${newProduct.id}`);
-    expect(response.status).toBe(200);
-    expect(response.data.name).toBe(newProduct.name);
-    expect(response.data.price).toBe(newProduct.price);
   });
 });

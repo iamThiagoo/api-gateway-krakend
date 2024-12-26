@@ -44,6 +44,11 @@ app.get('/products/:id', async (req, res) => {
 app.post('/products', async (req, res) => {
     try {
         const data = await readProductsFile();
+
+        if (!req.body.name || !req.body.price || !req.body.category || !req.body.stock || !req.body.imageUrl) {
+            return res.status(500).json({ error: 'Missing fields.' });
+        }
+
         const newProduct = {
             id: data.products.length + 1,
             ...req.body

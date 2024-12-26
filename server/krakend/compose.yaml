@@ -5,6 +5,9 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./config/krakend:/etc/krakend
+      - ./config:/etc/krakend
+    command: ["run", "-d", "-c", "/etc/krakend/krakend.json"]
     environment:
       - KRAKEND_CONFIG=/etc/krakend/krakend.json
+    networks:
+      - backend

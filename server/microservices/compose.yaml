@@ -10,6 +10,8 @@ services:
       - ./auth:/usr/src/app
       - /usr/src/app/node_modules
     restart: unless-stopped
+    networks:
+      - backend
 
   users-ms:
     build: ./users
@@ -22,6 +24,8 @@ services:
       - ./users:/usr/src/app
       - /usr/src/app/node_modules
     restart: unless-stopped
+    networks:
+      - backend
 
   products-ms:
     build: ./products
@@ -34,6 +38,8 @@ services:
       - ./products:/usr/src/app
       - /usr/src/app/node_modules
     restart: unless-stopped
+    networks:
+      - backend
 
   orders-ms:
     build: ./orders
@@ -46,3 +52,9 @@ services:
       - ./orders:/usr/src/app
       - /usr/src/app/node_modules
     restart: unless-stopped
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

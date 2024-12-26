@@ -24,6 +24,16 @@
       "id": 5,
       "name": "Felipe Costa",
       "email": "felipe.costa@outlook.com"
+    },
+    {
+      "id": 6,
+      "name": "João Pereira",
+      "email": "joao.pereira@example.com"
+    },
+    {
+      "id": 7,
+      "name": "John Doe",
+      "email": "johndoe@gmail.com"
     }
   ]
 }
